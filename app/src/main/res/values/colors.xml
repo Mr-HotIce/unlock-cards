@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#F6F4EF</color>
+    <color name="bg_dark">#121212</color>
+    <color name="ink">#141414</color>
+    <color name="muted">#666666</color>
+    <color name="ru">#1A3D1A</color>
+    <color name="phon">#9A5B00</color>
+    <color name="badge">#E4DFD4</color>
+    <color name="he">#DCEEFF</color>
+    <color name="accent">#0B5CAB</color>
+    <color name="btn">#1A1A1A</color>
+    <color name="q">#EEF4FB</color>
+    <color name="a">#EEF8F1</color>
+    <color name="n">#FBEEEE</color>
+    <color name="grid">#CFC8BB</color>
+</resources>
