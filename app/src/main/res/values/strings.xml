@@ -5,7 +5,7 @@
     <string name="service_title">Unlock Cards работает</string>
     <string name="service_text">Карточка появится после включения и разблокировки экрана</string>
     <string name="card_channel">Карточка</string>
-    <string name="tap_hint">нажми — перевод</string>
+    <string name="tap_hint">нажми — перевод · свайп вправо — дальше</string>
     <string name="know">Знаю</string>
     <string name="again">Ещё</string>
     <string name="close">Закрыть</string>

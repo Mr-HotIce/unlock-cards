@@ -10,7 +10,9 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -27,6 +29,7 @@ public class CardActivity extends Activity {
     private TextView ruphon;
     private TextView russian;
     private TableLayout petrov;
+    private GestureDetector gestures;
 
     public static void show(Context c) {
         Intent i = new Intent(c, CardActivity.class);
@@ -76,10 +79,31 @@ public class CardActivity extends Activity {
         findViewById(R.id.cardBody).setOnClickListener(v -> reveal());
         findViewById(R.id.word).setOnClickListener(v -> reveal());
         ((Button) findViewById(R.id.btnClose)).setOnClickListener(v -> finish());
-        ((Button) findViewById(R.id.btnNext)).setOnClickListener(v -> {
-            loadCard();
+        gestures = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float vx, float vy) {
+                if (e1 == null || e2 == null) return false;
+                float dx = e2.getX() - e1.getX();
+                float dy = e2.getY() - e1.getY();
+                if (dx > 120 && Math.abs(dx) > Math.abs(dy) && vx > 250) {
+                    loadCard();
+                    return true;
+                }
+                return false;
+            }
         });
         loadCard();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (gestures != null) gestures.onTouchEvent(ev);
+        return super.dispatchTouchEvent(ev);
     }
 
     private void setupLockFlags() {
