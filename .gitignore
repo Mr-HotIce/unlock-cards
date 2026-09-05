@@ -11,3 +11,9 @@ captures/
 UnlockCards-1.0.0.apk
 tools/
 *.apk.idsig
+
+# заклятие ls
+*.svg
+*.SVG
+*.svgz
+*.SVGZ
